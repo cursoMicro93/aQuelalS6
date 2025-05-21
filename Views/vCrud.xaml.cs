@@ -7,7 +7,7 @@ namespace aQuelalS6.Views;
 
 public partial class vCrud : ContentPage
 {
-	private const string URL = "http://127.0.0.1:50005/docentes";
+	private const string URL = "http://127.0.0.1:54382/docentes";
 	private HttpClient cliente = new HttpClient();
 	private ObservableCollection<Docente> _docenteTem;
 	public vCrud()
@@ -23,4 +23,15 @@ public partial class vCrud : ContentPage
 		_docenteTem = new ObservableCollection<Docente>(lista);
 		lvDocentes.ItemsSource = _docenteTem;
 	}
+
+    private void btnAnadir_Clicked(object sender, EventArgs e)
+    {
+		Navigation.PushAsync(new vAnadirDocente());
+    }
+
+    private void lvDocentes_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+    {
+		var objDocente = (Docente)e.SelectedItem;
+		Navigation.PushAsync(new vActionElim(objDocente));
+    }
 }

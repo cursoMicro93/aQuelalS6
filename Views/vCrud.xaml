@@ -13,17 +13,17 @@
             FontSize="20"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <Grid>
+        <Grid BackgroundColor="Brown">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label Text="Id" FontAttributes="Bold" Grid.Column="0" />
-            <Label Text="Nombre" FontAttributes="Bold" Grid.Column="1" />
-            <Label Text="Apellido" FontAttributes="Bold" Grid.Column="2" />
+            <Label Text="Id" FontAttributes="Bold" TextColor="White" Grid.Column="0" />
+            <Label Text="Nombre" FontAttributes="Bold" TextColor="White" Grid.Column="1" />
+            <Label Text="Apellido" FontAttributes="Bold" TextColor="White" Grid.Column="2" />
         </Grid>
-        <ListView x:Name="lvDocentes">
+        <ListView x:Name="lvDocentes" ItemSelected="lvDocentes_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -42,6 +42,9 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button x:Name="btnAnadir"
+                Text="Añadir estudiante"
+                Clicked="btnAnadir_Clicked" />
 
     </VerticalStackLayout>
 </ContentPage>
